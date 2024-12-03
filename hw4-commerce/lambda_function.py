@@ -11,12 +11,12 @@ ses = boto3.client("ses")
 
 
 def get_sentiment(polarity):
-    if polarity > 0:
+    if polarity >= 0:
         return "Positive"
     elif polarity < 0:
         return "Negative"
-    else:
-        return "Neutral"
+    # else:
+    #     return "Neutral"
 
 
 def lambda_handler(event, context):

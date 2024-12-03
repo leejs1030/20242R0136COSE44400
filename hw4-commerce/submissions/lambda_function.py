@@ -1,6 +1,7 @@
 import boto3
 from textblob import TextBlob
 import datetime
+import json
 
 student_number = "2020320125"
 
@@ -10,17 +11,18 @@ ses = boto3.client("ses")
 
 
 def get_sentiment(polarity):
-    if polarity > 0:
+    if polarity >= 0:
         return "Positive"
     elif polarity < 0:
         return "Negative"
-    else:
-        return "Neutral"
+    # else:
+    #     return "Neutral"
 
 
 def lambda_handler(event, context):
-    user_name = event["user_name"]
-    review_text = event["review"]
+    body = json.loads(event["body"])
+    user_name = body["user_name"]
+    review_text = body["review"]
     timestamp = datetime.datetime.now().isoformat()
 
     # Sentiment Analysis
