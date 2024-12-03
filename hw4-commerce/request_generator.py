@@ -59,7 +59,10 @@ def send_random_reviews(num_reviews):
         review_data = generate_random_review()
         response = requests.post(api_url, json=review_data)
         print(f"Sent: {review_data}")
-        print(f"Response: {response.status_code}, {response.json()}")
+        try:
+            print(f"Response: {response.status_code}, {response.json()}")
+        except json.JSONDecodeError:
+            print("Failed to decode JSON response")
 
 # Generate and send 20 random reviews
 send_random_reviews(20)
