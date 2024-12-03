@@ -62,7 +62,8 @@ def send_random_reviews(num_reviews):
         try:
             print(f"Response: {response.status_code}, {response.json()}")
         except json.JSONDecodeError:
-            print("Failed to decode JSON response")
+            print("Failed to decode JSON response. original text is: ")
+            print(response.text)
 
 # Generate and send 20 random reviews
 send_random_reviews(20)
