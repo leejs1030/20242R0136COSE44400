@@ -4,7 +4,7 @@ import random
 from datetime import datetime, timedelta
 
 # API Gateway Endpoint (Replace with your actual endpoint)
-api_url = "your_actual_api_endpoint_here"
+api_url = "https://pobht7gs5l.execute-api.us-east-1.amazonaws.com/prod/reviews"
 
 
 # Sample review templates
